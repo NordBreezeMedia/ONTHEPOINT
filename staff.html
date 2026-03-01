@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Staff - On The Point Business Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* All on canadapic – Our Staff bio above, then 3 columns: name above, description in white transparent boxes */
+        .staff-hero {
+            min-height: 100vh;
+            background-image: url('canadapic.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #9cb8ba;
+            padding: 6rem 1.5rem 4rem;
+        }
+        .staff-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.65) 30%, rgba(255,255,255,0.7) 100%);
+            pointer-events: none;
+        }
+        .staff-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .staff-hero-inner .staff-title {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .staff-hero-inner .staff-intro {
+            text-align: center;
+            margin: 0 0 2.5rem 0;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2.5rem;
+        }
+        .staff-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+        .staff-column {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .staff-name {
+            font-size: 1.35rem;
+            color: #2d6a6c;
+            margin: 0 0 0.75rem 0;
+            font-weight: 700;
+            text-align: center;
+        }
+        .staff-bio-box {
+            flex: 1;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            padding: 1.25rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .staff-bio-box .staff-bio {
+            margin: 0 0 0.75rem 0;
+            font-size: 0.95rem;
+            color: #1a1a1a;
+            line-height: 1.7;
+        }
+        .staff-bio-box .staff-bio:last-child {
+            margin-bottom: 0;
+        }
+        @media (max-width: 768px) {
+            .staff-hero { padding: 5rem 1rem 3rem; }
+            .staff-tabs {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+                padding: 0.85rem 0.5rem;
+            }
+            .staff-tabs a { font-size: 0.95rem; padding: 0.5rem 0.75rem; }
+            .staff-hero-inner .staff-title { font-size: 1.85rem; }
+            .staff-hero-inner .staff-intro { font-size: 1rem; margin-bottom: 2rem; }
+            .staff-columns { grid-template-columns: 1fr; gap: 1.5rem; }
+            .staff-bio-box { min-height: 220px; }
+            .staff-name { font-size: 1.25rem; }
+            .staff-bio-box .staff-bio { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body class="staff-page">
+    <main class="staff-main">
+        <section class="staff-hero">
+            <nav class="staff-tabs">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="staff.html" class="staff-nav-current">Our Staff</a>
+            </nav>
+            <div class="staff-hero-overlay"></div>
+            <div class="staff-hero-inner">
+                <h1 class="staff-title">Our Staff</h1>
+                <p class="staff-intro">Meet the people behind On The Point Business Solutions. Our team brings expertise, dedication, and a personal touch to every client relationship—from tax preparation and bookkeeping to payroll and business consulting.</p>
+
+                <div class="staff-columns">
+                    <div class="staff-column">
+                        <h2 class="staff-name">Kim</h2>
+                        <div class="staff-bio-box">
+                            <p class="staff-bio">Kim holds a Business Degree with a major in Accounting and is certified in both personal income tax and small incorporated business taxes. With years of experience and a strong professional foundation, she is committed to providing accurate, reliable service to individuals and business owners alike.</p>
+                            <p class="staff-bio">As the founder and mentor behind the team, Kim prides herself on attention to detail and creating a welcoming, unrushed experience for every client. Her goal is simple: that each person leaves feeling confident, cared for, and completely satisfied with their service.</p>
+                        </div>
+                    </div>
+                    <div class="staff-column">
+                        <h2 class="staff-name">Raianna</h2>
+                        <div class="staff-bio-box">
+                            <p class="staff-bio">Raianna trained under Kim for four tax seasons, gaining hands-on experience and building strong confidence in personal tax preparation. She holds certificates in Bookkeeping and Personal Tax Returns, allowing her to support clients with accuracy and professionalism.</p>
+                            <p class="staff-bio">She proudly welcomes clients in the Grande Prairie area into her home office, offering a comfortable and friendly environment. Raianna also provides virtual appointments, ensuring flexibility and convenience while maintaining the personal touch that defines the business.</p>
+                        </div>
+                    </div>
+                    <div class="staff-column">
+                        <h2 class="staff-name">Fiona</h2>
+                        <div class="staff-bio-box">
+                            <p class="staff-bio">Fiona holds a Personal Tax Certificate and has completed three years of training under Kim's guidance. Through her dedication and attention to detail, she has become a valued part of the team.</p>
+                            <p class="staff-bio">Working both virtually and behind the scenes, Fiona helps ensure every return is entered accurately and carefully. She has a genuine thirst for knowledge and often spends her downtime reviewing CRA resources to stay current, so clients can feel confident their returns are handled with care.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 On The Point Business Solutions. All rights reserved. | New Brunswick, Canada</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
