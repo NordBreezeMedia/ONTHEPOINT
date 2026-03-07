@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* All on canadapic – Our Staff bio above, then 3 columns: name above, description in white transparent boxes */
+        /* Staff page: description centered, staff below, tabs top right */
         .staff-hero {
+            position: relative;
             min-height: 100vh;
             background-image: url('canadapic.png');
             background-size: cover;
@@ -32,15 +33,25 @@
         .staff-hero-inner .staff-title {
             text-align: center;
             margin-bottom: 0.5rem;
+            font-size: 2.25rem;
+            color: #1a3a4a;
+            font-weight: 700;
         }
         .staff-hero-inner .staff-intro {
             text-align: center;
-            margin: 0 0 2.5rem 0;
+            margin: 0 auto 2.5rem auto;
             max-width: 680px;
-            margin-left: auto;
-            margin-right: auto;
             margin-bottom: 2.5rem;
+            width: 100%;
         }
+        .staff-intro p {
+            text-align: center;
+            margin: 0 0 0.85rem 0;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #1a1a1a;
+        }
+        .staff-intro p:last-child { margin-bottom: 0; }
         .staff-columns {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -61,7 +72,7 @@
         }
         .staff-bio-box {
             flex: 1;
-            min-height: 280px;
+            min-height: 260px;
             display: flex;
             flex-direction: column;
             background: rgba(255, 255, 255, 0.82);
@@ -71,6 +82,11 @@
             border-radius: 10px;
             border: 1px solid rgba(255,255,255,0.5);
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            animation: staff-box-strobe 2s ease-in-out infinite;
+        }
+        @keyframes staff-box-strobe {
+            0%, 100% { box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 0 0 rgba(90,200,200,0); }
+            50% { box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 0 20px 8px rgba(90,200,200,0.2); }
         }
         .staff-bio-box .staff-bio {
             margin: 0 0 0.75rem 0;
@@ -78,22 +94,38 @@
             color: #1a1a1a;
             line-height: 1.7;
         }
-        .staff-bio-box .staff-bio:last-child {
-            margin-bottom: 0;
-        }
+        .staff-bio-box .staff-bio:last-child { margin-bottom: 0; }
         @media (max-width: 768px) {
-            .staff-hero { padding: 5rem 1rem 3rem; }
-            .staff-tabs {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.5rem;
-                padding: 0.85rem 0.5rem;
+            body.staff-page { overflow-x: hidden !important; }
+            /* Tabs fixed at top on mobile – not mixed in with content */
+            .staff-page .staff-tabs {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                padding: 0.6rem 0.5rem !important;
+                justify-content: space-between !important;
+                flex-wrap: nowrap !important;
+                gap: 0.25rem !important;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.2), transparent) !important;
+                z-index: 9999 !important;
             }
-            .staff-tabs a { font-size: 0.95rem; padding: 0.5rem 0.75rem; }
+            /* Hide Our Staff tab on mobile – already on this page */
+            .staff-page .staff-tabs a[href="staff.html"],
+            .staff-page .staff-tabs a.staff-nav-current { display: none !important; }
+            .staff-page .staff-tabs a { font-size: 0.8rem !important; padding: 0.4rem 0.35rem !important; white-space: nowrap !important; }
+            .staff-hero { padding-top: 4rem !important; padding-left: 1rem !important; padding-right: 1rem !important; padding-bottom: 3rem !important; }
             .staff-hero-inner .staff-title { font-size: 1.85rem; }
-            .staff-hero-inner .staff-intro { font-size: 1rem; margin-bottom: 2rem; }
-            .staff-columns { grid-template-columns: 1fr; gap: 1.5rem; }
-            .staff-bio-box { min-height: 220px; }
+            .staff-hero-inner .staff-intro { margin-bottom: 2rem; }
+            .staff-intro p { font-size: 0.98rem; }
+            /* Fix white boxes cutting off – mobile only */
+            .staff-page .staff-main,
+            .staff-page .staff-hero,
+            .staff-page .staff-hero-inner { overflow-x: hidden !important; max-width: 100vw !important; width: 100% !important; box-sizing: border-box !important; }
+            .staff-page .staff-hero-inner { padding: 0 !important; }
+            .staff-page .staff-columns { grid-template-columns: 1fr; gap: 1.5rem; width: 100% !important; max-width: 100% !important; padding: 0 !important; }
+            .staff-page .staff-column { max-width: 100% !important; width: 100% !important; box-sizing: border-box !important; overflow: hidden !important; }
+            .staff-page .staff-bio-box { min-height: 220px; max-width: 100% !important; width: 100% !important; box-sizing: border-box !important; }
             .staff-name { font-size: 1.25rem; }
             .staff-bio-box .staff-bio { font-size: 0.9rem; }
         }
@@ -106,13 +138,18 @@
                 <a href="index.html">Home</a>
                 <a href="index.html#services">Services</a>
                 <a href="index.html#about">About</a>
-                <a href="index.html#contact">Contact</a>
                 <a href="staff.html" class="staff-nav-current">Our Staff</a>
+                <a href="index.html#contact">Contact</a>
             </nav>
             <div class="staff-hero-overlay"></div>
             <div class="staff-hero-inner">
                 <h1 class="staff-title">Our Staff</h1>
-                <p class="staff-intro">Meet the people behind On The Point Business Solutions. Our team brings expertise, dedication, and a personal touch to every client relationship—from tax preparation and bookkeeping to payroll and business consulting.</p>
+                <div class="staff-intro">
+                    <p>What began as one woman’s passion for accounting and helping others navigate their finances has grown into a trusted, family-run tax and bookkeeping team.</p>
+                    <p>Founded by Kim, our business was built on a simple belief: every client deserves accurate work, honest advice, and an experience where they never feel rushed. Over the years, that commitment to care and attention to detail became the foundation of everything we do.</p>
+                    <p>As the business grew, it became a true family effort. Kim mentored and trained Raianna and Fiona through multiple tax seasons, passing on not only technical knowledge but also the values that matter most — integrity, patience, and genuine client care.</p>
+                    <p>Today, we are proud to serve individuals and small businesses with a personal touch, whether in person or virtually. When you work with us, you’re not just another file — you’re part of a community built on trust, professionalism, and heart.</p>
+                </div>
 
                 <div class="staff-columns">
                     <div class="staff-column">
